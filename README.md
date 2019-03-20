@@ -10,4 +10,4 @@ None required
 
 # Invocation
 
-python code inputfile
+python ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1/2/3

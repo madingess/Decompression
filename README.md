@@ -10,4 +10,4 @@ None required
 
 # Invocation
 
-python  asdfjkl; file
+python code inputfile

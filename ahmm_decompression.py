@@ -1,7 +1,7 @@
 # Alan and His Merry Men Image Decompression
 
 
-import argparse, sys
+import argparse, sys, os
 
 
 
@@ -31,16 +31,29 @@ class App:
 		else:
 			Setting.OUTFILE = name_outfile(self.args.image)
 
-	def run(self):
+	def run_model(self):
 		"""Run the specified model on the given input"""
-		pass
+		if Setting.ALGORITHM == 1:
+			# Run super-resolution model
+			print("Running Super-Resolution Algorithm...")
+			
+			# Model only accepts one input at a time; run for each input image
+			for input_image in Setting.IMAGES:
+				print("\nEnhancing image \"" + input_image + "\"\n")
+				input_image = Setting.IMAGES[0]
+				super_res_call = "python3 enhance.py --type=photo --model=custom --zoom=4 " + input_image
+				os.system(super_res_call)
+		else:
+			# No valid model selected
+			print("No valid model selected.")
 
 
 
 # Define custom commandline arguments
-algorithm_form_help = "(1)  Super-Resolution Algorithm\n" + \
-					  "(2)  Optical Character Recognition Algorithm" + \
-					  "(3)  Pipelined Both"
+implemented_model_ids = [1]
+algorithm_form_help = "(1)  Super-Resolution Algorithm (Does not accept output specification)\n" #+ \
+					  #"(2)  Optical Character Recognition Algorithm" + \
+					  #"(3)  Pipelined Both"
 parser = argparse.ArgumentParser(description='Alan and His Merry Men\'s Image Decompression')
 parser.add_argument('image', nargs='*', default=[], help='input image files')
 parser.add_argument('-o', '--output', type=str, default='', help='specifiy a file name for the output')		# Allow multiple outfile args for multiple inputs?
@@ -49,8 +62,8 @@ parser.add_argument('--algorithm', type=int, default=1, help=algorithm_form_help
 
 # Parse arguments; close if no input images are defined
 args = parser.parse_args()
-print(args)
-if not args.image or args.algorithm not in [1,2,3]:
+#print(args)
+if not args.image or args.algorithm not in implemented_model_ids:
 	parser.print_help()
 	sys.exit(0)
 
@@ -58,4 +71,4 @@ if not args.image or args.algorithm not in [1,2,3]:
 # Define application with args, apply args, and run application
 app = App(args)
 app.apply_args()
-app.run()
+app.run_model()

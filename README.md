@@ -14,8 +14,6 @@
 # Dependency Installation
 
   The following are required for the super-resolution model. Execute the commands in order on a Linux machine.
-  
-.. code:: bash
 
     # Install Prerequisites
     sudo apt-get install -y gcc g++ gfortran build-essential git wget libopenblas-dev python3 python-dev python-pip python-nose python-numpy python-scipy
@@ -41,8 +39,6 @@ Dependencies installed in the final step can be uninstalled by simply removing t
   None required
 
 # Invocation
-
-.. code:: bash
 
     python ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
 

@@ -40,6 +40,6 @@ Dependencies installed in the final step can be uninstalled by simply removing t
 
 # Invocation
 
-    python ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
+    python3 ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
 
   Note that the super-resolution model does not accept output file specifications and only outputs .png files. Output file names are chosen according the input-file names in the format:  INFILE_ne4x.png  (with the input-file file's extension removed)

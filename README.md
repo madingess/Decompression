@@ -21,17 +21,6 @@
     # Install Theano and Lasagne 
     pip install --user --upgrade --no-deps https://github.com/Theano/Theano/archive/master.zip
     pip install --user --upgrade --no-deps https://github.com/Lasagne/Lasagne/archive/master.zip
-
-    # Create a local environment for Python 3.x to install dependencies here.
-    python3 -m venv pyvenv --system-site-packages
-
-    # If you're using bash, make this the active version of Python.
-    source pyvenv/bin/activate
-
-    # Setup the required dependencies simply using the PIP module.
-    python3 -m pip install --ignore-installed -r requirements.txt
-    
-Dependencies installed in the final step can be uninstalled by simply removing the "pyvenv/" folder.
     
 
 # Compilation
@@ -40,6 +29,12 @@ Dependencies installed in the final step can be uninstalled by simply removing t
 
 # Invocation
 
+First, if you have not already, activate the provided local environment for python3.6, which has locally installed the dependencies listed in *requirements.txt*.
+
+    source pyvenv/bin/activate
+    
+After the pyvenv environment has been made the active version of Python, invoke the program as follows
+    
     python3 ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
 
   Note that the super-resolution model does not accept output file specifications and only outputs .png files. Output file names are chosen according the input-file names in the format:  INFILE_ne4x.png  (with the input-file file's extension removed)

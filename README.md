@@ -37,4 +37,4 @@ After the pyvenv environment has been made the active version of Python, invoke 
     
     python3 ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
 
-  Note that the super-resolution model does not accept output file specifications and only outputs .png files. Output file names are chosen according the input-file names in the format:  INFILE_ne4x.png  (with the input-file file's extension removed)
+  Note that the super-resolution model does not accept output file specifications and only outputs .png files. Output file names are chosen according the input-file names in the format:  ahmm_enhance_INFILE_ne4x.png  (with the input-file file's extension removed)

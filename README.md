@@ -16,11 +16,15 @@
   The following are required for the super-resolution model. Execute the commands in order on a Linux machine.
 
     # Install Prerequisites
-    sudo apt-get install -y gcc g++ gfortran build-essential git wget libopenblas-dev python3 python-dev python-pip python-nose python-numpy python-scipy
+    sudo apt-get install -y gcc g++ gfortran build-essential git wget libopenblas-dev python3 python-dev python-pip python3-pip python-nose python-numpy python-scipy
+
+    # These may be necessary if you experience errors
+    pip3 install -U numpy
+    pip3 install -U scipy
     
     # Install Theano and Lasagne 
-    pip install --user --upgrade --no-deps https://github.com/Theano/Theano/archive/master.zip
-    pip install --user --upgrade --no-deps https://github.com/Lasagne/Lasagne/archive/master.zip
+    pip3 install --user --upgrade --no-deps https://github.com/Theano/Theano/archive/master.zip
+    pip3 install --user --upgrade --no-deps https://github.com/Lasagne/Lasagne/archive/master.zip
     
 
 # Compilation
@@ -29,7 +33,7 @@
 
 # Invocation
 
-First, if you have not already, activate the provided local environment for python3.6, which has locally installed the dependencies listed in *requirements.txt*.
+First, if you have not already, activate the provided local environment for python3.4, which has locally installed the dependencies listed in *requirements.txt*.
 
     source pyvenv/bin/activate
     

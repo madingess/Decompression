@@ -18,7 +18,7 @@
     # Install Prerequisites
     sudo apt-get install -y gcc g++ gfortran build-essential git wget libopenblas-dev python3 python-dev python-pip python3-pip python-nose python-numpy python-scipy
 
-    # These may be necessary if you experience errors
+    # These may be necessary if you experience errors; other python packages may need to be installed similarly.
     pip3 install -U numpy
     pip3 install -U scipy
     

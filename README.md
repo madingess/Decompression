@@ -39,6 +39,8 @@ First, if you have not already, activate the provided local environment for pyth
     
 After the pyvenv environment has been made the active version of Python, invoke the program as follows
     
-    python3 ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1
+    python3 ahmm_decompression.py inputfile(s) -o outputfile(s) --algorithm=1 --device DEVICE_NAME
 
   Note that the super-resolution model does not accept output file specifications and only outputs .png files. Output file names are chosen according the input-file names in the format:  ahmm_enhance_INFILE_ne4x.png  (with the input-file file's extension removed)
+
+  The device name may be one of the following: cpu, cuda, or opencl. The default is cpu. Cuda usability for Nvidia graphics cards must be enabled by visiting https://developer.nvidia.com/cuda-downloads, selecting the deb (network) installer type for your platform, and following the instructions provided.

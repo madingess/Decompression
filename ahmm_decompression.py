@@ -26,6 +26,7 @@ class App:
 		"""Apply arguments using Setting class"""
 		Setting.IMAGES = self.args.image
 		Setting.ALGORITHM = self.args.algorithm
+		Setting.DEVICE = self.args.device
 		if (self.args.output != ''):
 			Setting.OUTFILE = self.args.output
 		else:
@@ -41,7 +42,7 @@ class App:
 			for input_image in Setting.IMAGES:
 				print("\nEnhancing image \"" + input_image + "\"\n")
 				input_image = Setting.IMAGES[0]
-				super_res_call = "python3 enhance.py --type=photo --model=custom --zoom=4 " + input_image
+				super_res_call = "python3 enhance.py --type=photo --model=custom --zoom=4 --device " + Setting.DEVICE + " " + input_image
 				os.system(super_res_call)
 		else:
 			# No valid model selected
@@ -57,6 +58,7 @@ algorithm_form_help = "(1)  Super-Resolution Algorithm (Does not accept output s
 parser = argparse.ArgumentParser(description='Alan and His Merry Men\'s Image Decompression')
 parser.add_argument('image', nargs='*', default=[], help='input image files')
 parser.add_argument('-o', '--output', type=str, default='', help='specifiy a file name for the output')		# Allow multiple outfile args for multiple inputs?
+parser.add_argument('--device', type=str, default="cpu", help="device to use for network (cpu, cuda, opencl) default: cpu")
 parser.add_argument('--algorithm', type=int, default=1, help=algorithm_form_help)
 
 
